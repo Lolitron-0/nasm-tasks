@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "asm32+gcc",
+      "type": "shell",
+      "command": "macrofile=${workspaceFolder}/macro; rawfilename=${fileDirname}/${fileBasenameNoExtension}; gcc -m32 -c $macrofile.c -o $macrofile.o; nasm -F dwarf -g -f elf32 -i ${fileDirname} -o $rawfilename.o ${file}; gcc -m32 -o $rawfilename $rawfilename.o $macrofile.o;",
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "error"
+        }
+      },
+      "presentation": {
+        "focus": true,
+        "panel": "shared",
+        "reveal": "always",
+        "clear": true
+      }
+    }
+  ]
+}
